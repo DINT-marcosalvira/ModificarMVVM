@@ -20,16 +20,16 @@ namespace ModificarMVVM
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainWindowMVVM mv = new MainWindowMVVM();
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = mv.getClientes();
+            DataContext = new MainWindowMVVM();
+            ((MainWindowMVVM)DataContext).MainWindowMVVMVoid();
         }
 
         private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            mv.Modificar();
+            (this.DataContext as MainWindowMVVM).Modificar();
         }
     }
 }

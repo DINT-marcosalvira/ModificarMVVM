@@ -12,22 +12,19 @@ namespace ModificarMVVM
     class MainWindowMVVM : INotifyPropertyChanged
     {
         private BDMarcosEntities contexto;
+        private ObservableCollection<CLIENTE> Clients { get; set; }
+        private CLIENTE ClientsModifyComboBoxSelectedItem { get; set; }
 
-
-        public MainWindowMVVM()
+        public void MainWindowMVVMVoid()
         {
             contexto = new BDMarcosEntities();
             contexto.CLIENTES.Load();
+            Clients = contexto.CLIENTES.Local;
         }
 
         public void Modificar()
         {
             contexto.SaveChanges();
-        }
-
-        public ObservableCollection<CLIENTE> getClientes()
-        {
-            return contexto.CLIENTES.Local;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
