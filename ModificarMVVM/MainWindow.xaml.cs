@@ -24,7 +24,6 @@ namespace ModificarMVVM
         {
             InitializeComponent();
             DataContext = new MainWindowMVVM();
-            ((MainWindowMVVM)DataContext).MainWindowMVVMVoid();
         }
 
         private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)

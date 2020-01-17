@@ -15,13 +15,13 @@
     </Window.CommandBindings>
     
     <StackPanel>
-        <ComboBox x:Name="ClientsModifyComboBox" ItemsSource="{Binding Clients}" SelectedItem="{Binding ClientsModifyComboBoxSelectedItem}" DisplayMemberPath="id" Width="150" HorizontalAlignment="Left" Margin="10" ></ComboBox>
+        <ComboBox x:Name="ClientsModifyComboBox" ItemsSource="{Binding Clientes}" SelectedItem="{Binding ClientsModifyComboBoxSelectedItem}" DisplayMemberPath="id" Width="150" HorizontalAlignment="Left" Margin="10" ></ComboBox>
         <TextBlock Margin="10,10,10,5">Identificador</TextBlock>
         <TextBox x:Name="IdModTextBox" Margin="10,0,10,10" Text="{Binding ClientsModifyComboBoxSelectedItem.id}" ></TextBox>
         <TextBlock Margin="10,10,10,5">Nombre</TextBlock>
         <TextBox x:Name="NombreModTextBox" Margin="10,0,10,10" Text="{Binding ClientsModifyComboBoxSelectedItem.nombre}"></TextBox>
         <TextBlock Margin="10,10,10,5">Apellido</TextBlock>
         <TextBox x:Name="ApellidoModTextBox" Margin="10,0,10,10" Text="{Binding ClientsModifyComboBoxSelectedItem.apellido}"></TextBox>
-        <Button x:Name="ModificarButton" Width="60">Modificar</Button>
+        <Button x:Name="ModificarButton" Width="60" Command="ApplicationCommands.Save">Modificar</Button>
     </StackPanel>
 </Window>

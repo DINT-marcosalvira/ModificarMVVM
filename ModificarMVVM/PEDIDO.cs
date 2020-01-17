@@ -11,8 +11,9 @@ namespace ModificarMVVM
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class PEDIDO
+    using System.ComponentModel;
+
+    public partial class PEDIDO 
     {
         public int id { get; set; }
         public Nullable<System.DateTime> fecha_pedido { get; set; }
@@ -22,5 +23,6 @@ namespace ModificarMVVM
         public Nullable<int> enviado { get; set; }
     
         public virtual CLIENTE CLIENTES { get; set; }
+        
     }
 }

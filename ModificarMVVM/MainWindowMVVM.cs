@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Data.Entity;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,20 +11,22 @@ namespace ModificarMVVM
 {
     class MainWindowMVVM : INotifyPropertyChanged
     {
-        private BDMarcosEntities contexto;
-        private ObservableCollection<CLIENTE> Clients { get; set; }
+        
+        private ObservableCollection<CLIENTE> Clientes { get; set; }
         private CLIENTE ClientsModifyComboBoxSelectedItem { get; set; }
 
-        public void MainWindowMVVMVoid()
+        private BD baseDatos;
+
+        public MainWindowMVVM()
         {
-            contexto = new BDMarcosEntities();
-            contexto.CLIENTES.Load();
-            Clients = contexto.CLIENTES.Local;
+            baseDatos = new BD();
+            Clientes = baseDatos.GetClientes();
         }
 
         public void Modificar()
         {
-            contexto.SaveChanges();
+            baseDatos.GuardarModificacion();
+            ClientsModifyComboBoxSelectedItem = null;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
